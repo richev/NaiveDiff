@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Richev.RegexDiff.Core.Matcher;
@@ -58,20 +59,34 @@ namespace Richev.RegexDiff.Core
                 }
             }
 
-            AddUnmatchedLines(linesLeft, FoundIn.LeftOnly, result);
-            AddUnmatchedLines(linesRight, FoundIn.RightOnly, result);
+            AddTrailingUnmatchedLines(linesLeft, FoundIn.LeftOnly, result);
+            AddTrailingUnmatchedLines(linesRight, FoundIn.RightOnly, result);
 
             return result;
         }
 
         private void AddUnmatchedLines(Queue<string> lines1, FoundIn found, Queue<string> lines2, DiffResult result)
         {
+            if (!_lineMatcher.Matches(lines1.Last(), lines2.First()))
+            {
+                throw new InvalidOperationException($"'{lines1.Last()}' and '{lines2.First()}' don't match, but should.");
+            }
+
             while (lines1.Count > 1)
             {
                 result.Add(found, lines1.Dequeue());
             }
+
             result.Add(FoundIn.Both, lines1.Dequeue());
             lines2.Dequeue();
+        }
+
+        private void AddTrailingUnmatchedLines(Queue<string> lines, FoundIn found, DiffResult result)
+        {
+            while (lines.Any())
+            {
+                result.Add(found, lines.Dequeue());
+            }
         }
 
         private bool MatchesLast(Queue<string> lines, string line)
@@ -93,14 +108,6 @@ namespace Richev.RegexDiff.Core
             {
                 linesLeft.EnqueueUnlessNull(_streamLeft.ReadLine());
                 linesRight.EnqueueUnlessNull(_streamRight.ReadLine());
-            }
-        }
-
-        private void AddUnmatchedLines(Queue<string> lines, FoundIn found, DiffResult result)
-        {
-            while (lines.Any())
-            {
-                result.Add(found, lines.Dequeue());
             }
         }
 
