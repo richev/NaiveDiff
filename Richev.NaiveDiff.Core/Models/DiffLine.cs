@@ -1,0 +1,18 @@
+﻿using System.Diagnostics;
+
+namespace Richev.RegexDiff.Core.Models
+{
+    [DebuggerDisplay("FoundIn={FoundIn} Line={Line}")]
+    public class DiffLine
+    {
+        public DiffLine(FoundIn foundIn, string line)
+        {
+            FoundIn = foundIn;
+            Line = line;
+        }
+
+        public FoundIn FoundIn { get; }
+
+        public string Line { get; }
+    }
+}
