@@ -3,10 +3,10 @@ using System.IO;
 using System.Linq;
 using Moq;
 using NUnit.Framework;
-using Richev.RegexDiff.Core.Matcher;
-using Richev.RegexDiff.Core.Models;
+using Richev.NaiveDiff.Core.Matcher;
+using Richev.NaiveDiff.Core.Models;
 
-namespace Richev.RegexDiff.Core.Tests
+namespace Richev.NaiveDiff.Core.Tests
 {
     [TestFixture]
     public class DiffTests

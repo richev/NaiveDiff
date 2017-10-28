@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Richev.RegexDiff.Core
+namespace Richev.NaiveDiff.Core
 {
     public static class ExtensionMethods
     {

@@ -1,4 +1,4 @@
-﻿namespace Richev.RegexDiff.Core.Models
+﻿namespace Richev.NaiveDiff.Core.Models
 {
     /// <summary>
     /// Indicates in which file a line was found.

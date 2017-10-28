@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Richev.RegexDiff.Core.Models
+namespace Richev.NaiveDiff.Core.Models
 {
     public class DiffResult
     {

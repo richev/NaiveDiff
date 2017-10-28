@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using Richev.RegexDiff.Core.Models;
+using Richev.NaiveDiff.Core.Models;
 
-namespace Richev.RegexDiff.Core
+namespace Richev.NaiveDiff.Core
 {
     public interface IDiff : IDisposable
     {

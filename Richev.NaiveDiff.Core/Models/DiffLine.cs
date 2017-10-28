@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Richev.RegexDiff.Core.Models
+namespace Richev.NaiveDiff.Core.Models
 {
     [DebuggerDisplay("FoundIn={FoundIn} Line={Line}")]
     public class DiffLine
