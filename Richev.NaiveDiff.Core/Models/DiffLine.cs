@@ -14,10 +14,5 @@ namespace Richev.NaiveDiff.Core.Models
         public FoundIn FoundIn { get; }
 
         public string Line { get; }
-
-        public override string ToString()
-        {
-            return $"{FoundIn} {Line}";
-        }
     }
 }
