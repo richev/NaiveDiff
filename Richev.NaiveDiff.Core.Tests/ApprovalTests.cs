@@ -34,7 +34,9 @@ Line C";
 
             var result = Utils.GetDiffResult(_diff, fileLeft, fileRight);
 
-            Approvals.Verify(Stringify.Item(result));
+            var processed = Outputter.Process(result);
+
+            Approvals.Verify(processed);
         }
     }
 }

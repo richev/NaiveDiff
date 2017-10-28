@@ -2,7 +2,7 @@
 
 namespace Richev.NaiveDiff.Core.Models
 {
-    [DebuggerDisplay("FoundIn={FoundIn} Line={Line}")]
+    [DebuggerDisplay("{FoundIn} {Line}")]
     public class DiffLine
     {
         public DiffLine(FoundIn foundIn, string line)
@@ -14,5 +14,10 @@ namespace Richev.NaiveDiff.Core.Models
         public FoundIn FoundIn { get; }
 
         public string Line { get; }
+
+        public override string ToString()
+        {
+            return $"{FoundIn} {Line}";
+        }
     }
 }
