@@ -5,12 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ApprovalTests" Version="3.0.13" />
     <PackageReference Include="Moq" Version="4.7.142" />
     <PackageReference Include="NUnit" Version="3.8.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Richev.NaiveDiff.Core\Richev.NaiveDiff.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApprovalTests.Foo.approved.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,7 @@
+﻿Lines.Count = 3
+Lines[0].FoundIn = LeftOnly (1)
+Lines[0].Line = 'Line A'
+Lines[1].FoundIn = Both (0)
+Lines[1].Line = 'Line B'
+Lines[2].FoundIn = RightOnly (2)
+Lines[2].Line = 'Line C'

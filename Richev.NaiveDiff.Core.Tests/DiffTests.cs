@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using Moq;
 using NUnit.Framework;
 using Richev.NaiveDiff.Core.Matcher;
@@ -33,7 +31,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_matching_lines_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "foo", "bar" },
                 new[] { "foo", "bar" });
 
@@ -47,7 +46,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_unmatched_last_line_in_left_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "foo", "bar" },
                 new[] { "foo" });
 
@@ -61,7 +61,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_unmatched_last_line_in_right_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "foo" },
                 new[] { "foo", "bar" });
 
@@ -75,7 +76,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_unmatched_last_line_in_both_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "foo", "bar"},
                 new[] { "foo", "baz" });
 
@@ -90,7 +92,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_unmatched_first_line_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "foo", "bar" },
                 new[] {        "bar" });
 
@@ -104,7 +107,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_various_diffs_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "a", "b", "c" },
                 new[] { "a",      "c", "d" });
 
@@ -120,7 +124,8 @@ namespace Richev.NaiveDiff.Core.Tests
         [Test]
         public void Given_missing_lines_returns_expected()
         {
-            var result = GetDiffResult(
+            var result = Utils.GetDiffResult(
+                _diff,
                 new[] { "a",           "d" },
                 new[] { "a", "b", "c", "d" });
 
@@ -137,25 +142,6 @@ namespace Richev.NaiveDiff.Core.Tests
         {
             Assert.AreEqual(expectedFound, diffLine.FoundIn);
             Assert.AreEqual(expectedLine, diffLine.Line);
-        }
-
-        private DiffResult GetDiffResult(string[] linesLeft, string[] linesRight)
-        {
-            Stream GetStream(string s)
-            {
-                var stream = new MemoryStream();
-                var writer = new StreamWriter(stream);
-                writer.Write(s);
-                writer.Flush();
-                stream.Position = 0;
-                return stream;
-            }
-
-            using (var streamLeft = GetStream(string.Join(Environment.NewLine, linesLeft)))
-            using (var streamRight = GetStream(string.Join(Environment.NewLine, linesRight)))
-            {
-                return _diff.GetDiff(streamLeft, streamRight);
-            }
         }
     }
 }
