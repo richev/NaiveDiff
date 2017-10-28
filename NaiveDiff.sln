@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Richev.NaiveDiff.Core", "Ri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Richev.NaiveDiff.Core.Tests", "Richev.NaiveDiff.Core.Tests\Richev.NaiveDiff.Core.Tests.csproj", "{A03B2B52-4CC7-463C-AA92-4F45EB8BEB8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F133C1B-5F63-4CE8-BCDA-F560C7D8FE29}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
