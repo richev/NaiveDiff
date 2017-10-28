@@ -26,7 +26,7 @@ namespace Richev.NaiveDiff.Core.Tests
             var fileLeft = @"28/10/2017 Line A
 28/10/2017 Line B";
 
-            const string fileRight = @"27/10/2017  Line B
+            const string fileRight = @"27/10/2017 Line B
 27/10/2017 Line C";
 
             var result = Utils.GetDiffResult(_diff, fileLeft, fileRight);
