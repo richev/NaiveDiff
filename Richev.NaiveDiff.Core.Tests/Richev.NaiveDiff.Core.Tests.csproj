@@ -4,8 +4,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="AlphaFS" Version="2.2.0" />
+    <PackageReference Include="AlphaFS" Version="2.2.1" />
     <PackageReference Include="ApprovalTests" Version="3.0.14" />
     <PackageReference Include="ApprovalUtilities" Version="3.0.14" />
     <PackageReference Include="Moq" Version="4.8.2" />

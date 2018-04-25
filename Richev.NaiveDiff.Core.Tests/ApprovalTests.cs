@@ -1,6 +1,5 @@
 ﻿using ApprovalTests;
 using ApprovalTests.Reporters;
-using Moq;
 using NUnit.Framework;
 using Richev.NaiveDiff.Core.Matcher;
 
