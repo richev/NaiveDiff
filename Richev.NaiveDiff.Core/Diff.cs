@@ -100,10 +100,8 @@ namespace Richev.NaiveDiff.Core
             Queue<string> linesLeft,
             Queue<string> linesRight)
         {
-            while (lineRight != null &&
-                lineLeft != null &&
-                linesLeft.Last() != lineRight &&
-                linesRight.Last() != lineLeft &&
+            while (linesLeft?.LastOrDefault() != lineRight &&
+                linesRight?.LastOrDefault() != lineLeft &&
                 !(_streamLeft.EndOfStream && _streamRight.EndOfStream))
             {
                 linesLeft.EnqueueUnlessNull(_streamLeft.ReadLine());

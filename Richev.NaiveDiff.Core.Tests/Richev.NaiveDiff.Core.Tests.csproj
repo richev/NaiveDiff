@@ -4,13 +4,30 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Moq" Version="4.7.142" />
-    <PackageReference Include="NUnit" Version="3.8.1" />
+    <PackageReference Include="AlphaFS" Version="2.2.1" />
+    <PackageReference Include="ApprovalTests" Version="3.0.14" />
+    <PackageReference Include="ApprovalUtilities" Version="3.0.14" />
+    <PackageReference Include="Moq" Version="4.8.2" />
+    <PackageReference Include="NUnit" Version="3.10.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Richev.NaiveDiff.Core\Richev.NaiveDiff.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApprovalTests.Foo.approved.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
 
 </Project>
