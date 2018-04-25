@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Richev.RegexDiff.Core.Matcher;
-using Richev.RegexDiff.Core.Models;
+using Richev.NaiveDiff.Core.Matcher;
+using Richev.NaiveDiff.Core.Models;
 
-namespace Richev.RegexDiff.Core
+namespace Richev.NaiveDiff.Core
 {
     public class Diff : IDiff
     {

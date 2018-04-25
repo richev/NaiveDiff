@@ -1,4 +1,4 @@
-﻿namespace Richev.RegexDiff.Core.Matcher
+﻿namespace Richev.NaiveDiff.Core.Matcher
 {
     public interface ILineMatcher
     {
